@@ -6,9 +6,12 @@ use raspberry pi to get real-time mentions(weibo), the mentions will be as the c
 Requires
 ----------
 * requests
+* pySerial
 
 Usage
 ---------
 * tbc
+
+https://github.com/michaelliao/sinaweibopy
 
 

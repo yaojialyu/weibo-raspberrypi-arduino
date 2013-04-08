@@ -8,8 +8,8 @@ import shelve
 
 import requests
 
-from weibo import APIClient
-from retry import *
+from lib.weibo import APIClient
+from lib.retry import *
 
 APP_KEY = '330457405'
 APP_SECRET = 'fdf309bef2ec167668b6cde8688f0952'
@@ -60,8 +60,6 @@ def get_since_id():
         save_since_id(since_id)
     return since_id
 
-    
-
 def get_access_token_from_weibo():
     params = {'action':'submit', 'withOfficalFlag':0, 'ticket':'', 
         'isLoginSina':'', 'response_type':'code','state':'','from':''}
@@ -110,8 +108,9 @@ if __name__ == '__main__':
     apply_access_token()
     client.statuses.update.post(status=u'测试一下。')
     mentions = get_new_mentions()
-    for mention in mentions:
-        print mention['id'], mention['mid'], mention['text']
+    if mentions:
+        for mention in mentions:
+            print mention['id'], mention['mid'], mention['text']
     else:
         print 'no new mentions yet'
     
