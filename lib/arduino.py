@@ -1,5 +1,9 @@
 #!/usr/bin/env python
 
+'''
+https://github.com/vascop/Python-Arduino-Proto-API-v2
+'''
+
 import serial
 
 class Arduino(object):

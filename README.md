@@ -10,8 +10,14 @@ Requires
 
 Usage
 ---------
-* tbc
+1. Setting up configurations in config.py
+2. python main.py
 
-https://github.com/michaelliao/sinaweibopy
+(to be continue)
+
+Reference
+---------
+* https://github.com/michaelliao/sinaweibopy
+* https://github.com/wtmmac/Sina-weibo-api-access-by-python
 
 

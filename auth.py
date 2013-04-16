@@ -10,13 +10,7 @@ import requests
 
 from lib.weibo import APIClient
 from lib.retry import *
-
-APP_KEY = '330457405'
-APP_SECRET = 'fdf309bef2ec167668b6cde8688f0952'
-CALLBACK_URL = 'http://lvyaojia.sinaapp.com/' 
-USERID = 'godtweet@sina.com'
-USERPASSWD = 'godtweet'
-TOKEN_FILE = './token.txt'
+from config import APP_KEY, APP_SECRET, CALLBACK_URL, USERID, USERPASSWD, TOKEN_FILE
 
 client = APIClient(app_key=APP_KEY, app_secret=APP_SECRET, redirect_uri=CALLBACK_URL)
 
@@ -61,6 +55,8 @@ def get_since_id():
     return since_id
 
 def get_access_token_from_weibo():
+    '''模拟web用户授权，获取access_token
+    '''
     params = {'action':'submit', 'withOfficalFlag':0, 'ticket':'', 
         'isLoginSina':'', 'response_type':'code','state':'','from':''}
     params['redirect_uri'] = CALLBACK_URL
