@@ -15,3 +15,6 @@ TOKEN_FILE = './token.txt'
 
 #Arduino 的地址, Linux下通常是：/dev/ttyACMx 或 /dev/ttyUSBx
 ARDUINO_ADDRESS = '/dev/tty.usbmodem1421'
+
+#继电器的PIN口
+RELAY_PIN = 3

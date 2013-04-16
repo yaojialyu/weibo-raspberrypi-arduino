@@ -7,13 +7,11 @@ import time
 
 from lib.arduino import Arduino
 from auth import *
-from config import ARDUINO_ADDRESS
-
-PIN = 3
+from config import ARDUINO_ADDRESS, RELAY_PIN
 
 if __name__ == '__main__':
     arduino = Arduino(ARDUINO_ADDRESS)
-    arduino.output([PIN])
+    arduino.output([RELAY_PIN])
     apply_access_token()
     while 1:
         mentions = get_new_mentions()
@@ -22,10 +20,10 @@ if __name__ == '__main__':
                 command = mention['text'].split()[1]
                 if command == u'开门':
                     client.statuses.update.post(status=u'树莓开门！')
-                    arduino.setHigh(PIN)
+                    arduino.setHigh(RELAY_PIN)
                 elif command == u'关门':
                     client.statuses.update.post(status=u'树莓关门！')
-                    arduino.setLow(PIN)
+                    arduino.setLow(RELAY_PIN)
         else:
             print '亲，木有新命令。。。'
         time.sleep(5)
