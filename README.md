@@ -19,5 +19,5 @@ Reference
 ---------
 * https://github.com/michaelliao/sinaweibopy
 * https://github.com/wtmmac/Sina-weibo-api-access-by-python
-
+* https://github.com/vascop/Python-Arduino-Proto-API-v2
 

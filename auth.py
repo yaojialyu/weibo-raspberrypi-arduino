@@ -9,7 +9,7 @@ import shelve
 import requests
 
 from lib.weibo import APIClient
-from lib.retry import *
+from lib.retry import retry
 from config import APP_KEY, APP_SECRET, CALLBACK_URL, USERID, USERPASSWD, TOKEN_FILE
 
 client = APIClient(app_key=APP_KEY, app_secret=APP_SECRET, redirect_uri=CALLBACK_URL)
