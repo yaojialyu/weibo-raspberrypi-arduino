@@ -7,7 +7,7 @@ import time
 
 from lib.arduino import Arduino
 from auth import client, apply_access_token, get_new_mentions
-from config import ARDUINO_ADDRESS, RELAY_PIN
+from config import ARDUINO_ADDRESS, RELAY_PIN, TEM_PIN
 
 if __name__ == '__main__':
     arduino = Arduino(ARDUINO_ADDRESS)
