@@ -57,7 +57,7 @@ def get_since_id():
 def get_access_token_from_weibo():
     '''模拟web用户授权，获取access_token
     '''
-    params = {'action':'submit', 'withOfficalFlag':0, 'ticket':'', 
+    params = {'action':'submit', 'withOfficalFlag':0, 'ticket':'',
         'isLoginSina':'', 'response_type':'code','state':'','from':''}
     params['redirect_uri'] = CALLBACK_URL
     params['client_id'] = APP_KEY
@@ -80,7 +80,7 @@ def apply_access_token():
         try:
             client.set_access_token(access_token, expires_in)
         except StandardError, e:
-            if hasattr(e, 'error'): 
+            if hasattr(e, 'error'):
                 if e.error == 'expired_token':
                     access_token = get_access_token_from_weibo()
                     save_access_token(access_token)
@@ -90,7 +90,7 @@ def apply_access_token():
         access_token = get_access_token_from_weibo()
         save_access_token(access_token)
     return False
-        
+
 def get_new_mentions():
     '''只获取我关注的人的mention，并保存最新一条mention的id'''
     since_id = get_since_id()
@@ -109,6 +109,6 @@ if __name__ == '__main__':
             print mention['id'], mention['mid'], mention['text']
     else:
         print 'no new mentions yet'
-    
+
 
 
