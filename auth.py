@@ -65,7 +65,7 @@ def get_access_token_from_weibo():
     params['passwd'] = USERPASSWD
     headers = {'Referer': client.get_authorize_url()}
     response = requests.post("https://api.weibo.com/oauth2/authorize", params=params, headers=headers)
-    code = response.url.split('=')[1][0:-5]
+    code = response.url.split('=')[1]
     access_token = client.request_access_token(code)
     return access_token
 
