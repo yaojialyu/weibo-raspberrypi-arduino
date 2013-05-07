@@ -17,7 +17,6 @@ if __name__ == '__main__':
     pygame.init()
     pygame.camera.init()
     cam = pygame.camera.Camera("/dev/video0",(640,480))
-    cam.start()
 
     arduino = Arduino(ARDUINO_ADDRESS)
     arduino.output([RELAY_PIN])
@@ -36,12 +35,14 @@ if __name__ == '__main__':
                     arduino.setLow(RELAY_PIN)
                     print '关灯'
                 elif command == u'拍照':
+                    cam.start()
                     image = cam.get_image()
                     pygame.image.save(image, 'image.jpg')
                     cam.stop()
                     t = time.strftime('%Y-%m-%d %H:%M',time.localtime(time.time()))
                     pic = open('image.jpg', "rb")
                     client.statuses.upload.post(status=t, pic=pic)
+                    pic.close()
                     print '截图，发布图片~'
         else:
             print '亲，木有新命令。。。'
